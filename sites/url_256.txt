@@ -1,8 +1,8 @@
-contatoindexhistoriamodelosmarcaspedagogicocuriosidadescontatoluc,
-pir,
-barboz,
-periodoengenh,
-computaca,
-ifsuldeminascelul,
-email,
-lucasbarbozaalunosifsuldeminasedubr,
+contatoindexhistoriamodelosmarcaspedagogicocuriosidadescontatoluc
+pir
+barboz
+periodoengenh
+computaca
+ifsuldeminascelul
+email
+lucasbarbozaalunosifsuldeminasedubr

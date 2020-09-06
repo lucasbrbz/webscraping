@@ -1,5 +1,5 @@
-decepcionadovoc,
-nao,
-tev,
-coragemtent,
-nov,
+decepcionadovoc
+nao
+tev
+coragemtent
+nov

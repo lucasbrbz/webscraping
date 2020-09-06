@@ -1,4 +1,4 @@
-metod,
-resolucaoindexhistoriamodelosmarcaspedagogicocuriosidadescontatoalgum,
-curiosidadesfont,
-cubovelocidadecombr,
+metod
+resolucaoindexhistoriamodelosmarcaspedagogicocuriosidadescontatoalgum
+curiosidadesfont
+cubovelocidadecombr
