@@ -12,8 +12,6 @@ import numpy as np
 import math
 import time
 
-init = time.time()
-
 arqLink = open('links.txt', 'r')
 links = arqLink.readlines()
 
@@ -32,8 +30,8 @@ while x < len(links):
         x += 1
 
 
-for y in range(len(links)):
-    # for y in range(15):
+# for y in range(len(links)):
+for y in range(5):
     url = links[y][0].replace('\n', "")
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -112,7 +110,61 @@ for g in range(len(documentos)):
     for h in range(len(chave)):
         td.ix[g, h] = td.ix[g, h] * df[h]
 
-print(td)
-fim = time.time()
-tempo_total = fim - init
-print(str(tempo_total) + ' Segundos')
+
+# chave_de_busca = input()
+chave_de_busca = "aa aao abaix"
+chave_de_busca = chave_de_busca.lower()
+chave_de_busca = chave_de_busca.split()
+
+chave_tratada = []
+
+for h in range(len(chave)):
+    exist = chave_de_busca.count(chave[h])
+    if exist != 0:
+        chave_tratada.append(1)
+    else:
+        chave_tratada.append(0)
+
+
+soma_q = 0
+soma_d = []
+soma = 0
+produto_escalar = []
+
+for h in range(len(chave_tratada)):
+    soma_q = soma_q + (chave_tratada[h] * chave_tratada[h])
+
+
+soma_q = math.sqrt(soma_q)
+
+for g in range(len(documentos)):
+    for h in range(len(chave_tratada)):
+        soma = soma + (td.ix[g, h] * td.ix[g, h])
+    soma = math.sqrt(soma)
+    soma_d.append(soma)
+
+td.loc['CHAVE DE BUSCA'] = chave_tratada
+
+for h in range(len(chave)):
+    td.ix[-1, h] = td.ix[-1, h] * df[h]
+
+
+for g in range(len(documentos)):
+    for h in range(len(chave_tratada)):
+        soma = soma + (td.ix[g, h] * td.ix[-1, h])
+    produto_escalar.append(soma)
+
+produto_escalar.pop()
+produto_escalar.append(1)
+
+print(produto_escalar)
+
+cos = []
+
+for h in range(len(produto_escalar)):
+    cos.append(produto_escalar[h] / (soma_q * soma_d[h]))
+
+cos.pop()
+cos.sort(reverse=True)
+
+print(cos)
