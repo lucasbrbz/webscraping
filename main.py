@@ -112,7 +112,7 @@ for g in range(len(documentos)):
 
 
 # chave_de_busca = input()
-chave_de_busca = "aa aao abaix"
+chave_de_busca = "alem caminho"
 chave_de_busca = chave_de_busca.lower()
 chave_de_busca = chave_de_busca.split()
 
@@ -143,6 +143,7 @@ for g in range(len(documentos)):
     soma = math.sqrt(soma)
     soma_d.append(soma)
 
+
 td.loc['CHAVE DE BUSCA'] = chave_tratada
 
 for h in range(len(chave)):
@@ -157,14 +158,19 @@ for g in range(len(documentos)):
 produto_escalar.pop()
 produto_escalar.append(1)
 
-print(produto_escalar)
 
 cos = []
 
+par_chave_valor = {}
+
 for h in range(len(produto_escalar)):
     cos.append(produto_escalar[h] / (soma_q * soma_d[h]))
+    par_chave_valor[links[h][0].replace('\n', "")] = cos[h]
 
 cos.pop()
 cos.sort(reverse=True)
 
-print(cos)
+par_chave_valor = sorted(par_chave_valor.items(),
+                         key=lambda x: x[1], reverse=True)
+
+print(par_chave_valor)
